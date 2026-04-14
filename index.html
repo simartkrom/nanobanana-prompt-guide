@@ -1169,13 +1169,13 @@ section p {
 <!-- ============================================ -->
 <section id="intro">
 <h2>AI 이미지 크리에이션, 왜 프롬프트가 전부인가</h2>
-<p>AI 이미지 생성 도구를 처음 접하면 "아무 말이나 쓰면 그림이 나오네?"라고 느끼게 됩니다. 맞아요. 그런데 문제는 그 다음이에요. 내가 머릿속에 그린 이미지와 AI가 뱉어낸 이미지 사이의 괴리. 이 간극을 좁히는 유일한 도구가 바로 <strong>프롬프트</strong>입니다.</p>
-<p>프롬프트는 단순한 "명령어"가 아닙니다. AI에게 보내는 <strong>크리에이티브 브리프(Creative Brief)</strong>에 가깝습니다. 사진작가에게 촬영 의뢰서를 보내듯이, AI에게도 "누가, 어디서, 어떤 분위기로, 어떤 느낌으로" 찍어야 하는지 알려줘야 하죠.</p>
+<p>처음 이미지 생성 AI를 만져보면 묘한 기분이 듭니다. 몇 줄 써넣었을 뿐인데 그림이 뚝 튀어나오니까요. 흥분도 잠시, 두 번째 시도부터 현실이 보입니다. 내가 기대한 장면과 AI가 내놓은 장면 사이에 생기는 미묘한 엇박자. 이 엇박자를 지워주는 수단이 오직 하나, <strong>프롬프트</strong>입니다.</p>
+<p>그래서 프롬프트는 단순한 키워드 입력이 아닙니다. AI에게 건네는 <strong>작업 지시서(Creative Brief)</strong>라고 보는 편이 훨씬 맞아요. 촬영 스태프에게 컨티뉴티를 전달하듯, 피사체·공간·무드·빛의 방향까지 빠뜨리지 않고 챙겨줘야 머릿속에 그린 그림이 그대로 나옵니다.</p>
 <div class="tip">
-<strong>핵심 비유:</strong> 프롬프트 = AI에게 보내는 촬영 의뢰서. 의뢰서가 구체적일수록 결과물의 품질이 올라갑니다. 반대로, "예쁜 사진 찍어줘"라고만 쓰면 AI도 뭘 해야 할지 모릅니다.
+<strong>핵심 비유:</strong> 프롬프트는 곧 촬영 의뢰서입니다. 의뢰서가 꼼꼼할수록 결과물은 내 의도에 가까워지고, "그냥 예쁘게 해줘" 같은 한 줄은 AI 입장에서도 답답한 미션이 됩니다.
   </div>
 <h3>이 핸드북에서 배울 것</h3>
-<p>이 장에서는 나노바나나 AI 플랫폼의 <strong>5-Block 프롬프트 시스템</strong>을 완전히 이해하고, 실제 업무에서 바로 쓸 수 있도록 하는 것이 목표입니다. 구체적으로:</p>
+<p>이번 챕터의 목적은 Nano Banana의 <strong>5-Block 프롬프트 시스템</strong>을 몸에 익히는 일입니다. 단순 암기가 아니라, 실제 업무 상황에서 바로 꺼내 쓸 수 있는 감각까지 가져가는 게 목표예요. 구체적으로는:</p>
 <div class="structure-overview">
 <div class="structure-row">
 <div class="structure-dot green"></div>
@@ -1194,14 +1194,14 @@ section p {
 </div>
 </div>
 <h3>누가 읽으면 좋을까</h3>
-<p>AI 이미지를 "제대로" 쓰고 싶은 모든 크리에이터, 마케터, 디자이너, 교육자가 대상입니다. 코딩 지식은 전혀 필요 없어요. 다만 "대충 써도 되겠지"라는 마인드를 버리고, "의도를 정확히 전달하겠다"는 태도가 필요합니다.</p>
+<p>AI 이미지를 업무 수준으로 활용하고 싶은 크리에이터, 마케터, 디자이너, 교육자 모두가 대상입니다. 프로그래밍 배경지식은 하나도 필요 없어요. 다만 "적당히 쓰면 되겠지"라는 습관을 내려놓고, "내가 뭘 원하는지 AI에게 정확히 알려주겠다"는 자세 하나만 챙겨오시면 됩니다.</p>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P001" data-pid="P001" loading="lazy" src="atomic-prompt-images/P001.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label">가장 간단한 프롬프트 — 이것만으로도 시작할 수 있다</div>
 <pre><span class="g">Cinematic, portrait of a woman sitting at a cafe, morning light</span></pre>
 <button class="copy-btn" onclick="copyPrompt(this)">복사</button>
 </div>
-<p style="margin-top:10px;">이 한 줄이면 AI는 "영화적인 느낌의, 카페에 앉은 여성, 아침 빛"이라는 이미지를 생성합니다. 하지만 이걸 "내가 원하는 정확한 이미지"로 만들려면? 그게 바로 5-Block 시스템이 하는 일입니다.</p>
-<p>그런데 5-Block을 배우기 전에, 먼저 <strong>왜 대부분의 프롬프트가 실패하는지</strong>를 이해해야 합니다. 원인을 모르면 해결책도 감이 안 오거든요.</p>
+<p style="margin-top:10px;">이 한 줄만으로도 AI는 "영화적 질감, 카페에 앉은 여성, 아침 빛" 이미지를 만들어 냅니다. 문제는 이걸 <strong>내 머릿속 정확한 그림</strong>에 맞추려 할 때 시작돼요. 그 간극을 메우는 도구가 바로 5-Block 시스템입니다.</p>
+<p>5-Block 이야기를 꺼내기 전에, 먼저 짚고 가야 할 게 있어요. <strong>왜 대부분의 프롬프트는 의도대로 나오지 않는가</strong>. 원인을 알아야 해결책이 눈에 들어오니까요.</p>
 </section>
 <div class="section-divider"></div>
 <!-- ============================================ -->
@@ -1209,18 +1209,18 @@ section p {
 <!-- ============================================ -->
 <section id="why-fail">
 <h2>왜 당신의 프롬프트는 실패하는가 — 3가지 패턴</h2>
-<p>AI 이미지 모델은 <strong>LLM(Large Language Model)</strong> 기술을 기반으로 프롬프트를 해석합니다. 여기서 핵심적인 사실 하나:</p>
+<p>요즘 AI 이미지 모델은 전부 <strong>LLM(Large Language Model)</strong>이라는 대규모 언어 모델 위에서 돌아갑니다. 방대한 텍스트·이미지 데이터로 단어와 시각 요소의 연결을 학습한 녀석들이죠. 그런데 여기엔 꼭 기억해야 할 전제가 하나 있습니다.</p>
 <div class="info-box red">
-<strong>LLM은 당신의 의도(intention)를 읽지 못합니다. 오직 당신이 쓴 텍스트(text)만 처리합니다.</strong>
-    "예쁜 여자"라고 입력하면, AI는 "이 사람이 어떤 여성을 원하는지" 추론하지 않습니다. "pretty" + "woman"이라는 단어 조합과 통계적으로 연관된 시각적 패턴을 출력할 뿐입니다.
+<strong>LLM은 당신의 속마음을 짐작하지 않습니다. 화면에 입력한 텍스트만 읽어냅니다.</strong>
+    "예쁜 여자"라고 쓰면 AI는 "이 사람이 어떤 여성을 그리고 있을까"를 상상하는 게 아니라, "pretty"와 "woman"이라는 단어 조합에 통계적으로 달라붙은 시각 패턴을 꺼내 놓을 뿐이에요.
   </div>
-<p>Google 공식 프롬프트 가이드에서도 이 점을 명확히 합니다: <em>"좋은 프롬프트는 대부분 서술적이고 명확하다(descriptive and clear)."</em> 그런데 대부분의 초보자 프롬프트는 서술적이지도, 명확하지도 않습니다. 크게 세 가지 패턴으로 실패해요.</p>
+<p>Google 공식 프롬프트 가이드도 같은 결론을 짚습니다: <em>"좋은 프롬프트는 길지 않아도 되지만, 대개 서술적이고 명료하다(descriptive and clear)."</em> 반면 대부분의 입문자 프롬프트는 서술적이지도, 명료하지도 않아요. 전형적인 실패 패턴 세 가지를 살펴봅시다.</p>
 <h3>패턴 1: 정보 부족 — "알아서 해줘"</h3>
 <div class="negative">
 <h5>❌ 실패 프롬프트</h5>
 <pre>beautiful woman</pre>
 </div>
-<p>이 프롬프트에는 나이, 인종, 표정, 자세, 의상, 배경, 조명, 카메라 앵글 정보가 전혀 없습니다. AI 입장에서는 <strong>결정해야 할 변수가 너무 많은 불완전한 지시문</strong>이에요. 빈칸을 전부 학습 데이터의 통계적 평균값으로 채우니, 결과는 매번 다르고 여러분 머릿속 이미지와 일치할 확률은 극히 낮습니다.</p>
+<p>이 한 단어 조합엔 연령대, 국적, 표정, 포즈, 옷차림, 배경, 조명, 렌즈 앵글 — 어느 하나 지정된 게 없습니다. AI 관점에서는 <strong>혼자 정해야 할 변수만 가득한 구멍난 지시문</strong>이죠. 결국 비어 있는 자리는 전부 학습 데이터의 통계적 평균값으로 메워지고, 결과물은 매번 달라지며 여러분 머릿속 그림과 들어맞을 확률은 극히 낮아집니다.</p>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P442" data-pid="P442" loading="lazy" src="atomic-prompt-images/P442.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label green">✅ 개선 프롬프트 — 빈칸을 직접 채움</div>
 <pre><span class="g">Portrait photography of a Korean woman in her late 20s, short black hair, minimal makeup</span>,
@@ -1234,10 +1234,10 @@ section p {
 <h5>❌ 실패 프롬프트</h5>
 <pre>warm cozy atmosphere, cold blue lighting, cinematic noir style, bright and cheerful</pre>
 </div>
-<p>따뜻한 분위기인데 차가운 조명? 느와르인데 밝고 쾌활? AI는 모순되는 지시를 받으면 각 키워드의 가중치를 <strong>평균화</strong>해서 처리합니다. 결과는 어떤 방향으로도 제대로 가지 못한 혼란스러운 이미지가 돼요.</p>
+<p>"아늑한데 차가운 조명", "누아르인데 밝고 경쾌" — 말이 안 되죠. 이렇게 서로 부딪히는 지시가 들어오면 AI는 각 키워드의 가중치를 <strong>평균으로 섞어서</strong> 내놓습니다. 어느 쪽으로도 제대로 가지 못한, 미지근하게 뭉개진 이미지가 나오는 이유예요.</p>
 <div class="info-box yellow">
 <strong>냉커피 비유</strong>
-    내가 원하는 건 시원한 아이스 아메리카노인데, AI한테 "뜨거우면서 차가운 커피"를 주문하면? 뜨거운 커피에 찬물을 부은 미지근한 물이 나옵니다. 원하는 방향을 하나로 통일하세요.
+    아이스 아메리카노 한 잔이 마시고 싶어서 "뜨거우면서 시원한 커피"를 주문하면 어떻게 될까요? 뜨거운 커피에 찬물을 들이부은 애매한 미지근 커피가 나옵니다. 방향은 처음부터 하나로 못박아 두세요.
   </div>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P443" data-pid="P443" loading="lazy" src="atomic-prompt-images/P443.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label green">✅ 개선 프롬프트 — 방향 통일</div>
@@ -1252,10 +1252,10 @@ section p {
 <h5>❌ 실패 프롬프트</h5>
 <pre>beautiful, stunning, amazing, gorgeous, breathtaking, masterpiece, best quality, ultra realistic, 8K, HDR, award winning, professional photography</pre>
 </div>
-<p>이 프롬프트의 문제는 <strong>실제로 이미지를 묘사하는 단어가 하나도 없다</strong>는 겁니다. 전부 품질 수식어일 뿐, "무엇을", "어디서", "어떤 빛 아래서" 찍었는지 정보가 전무합니다. AI는 이런 수식어에 약간의 가중치를 주지만, 장면 구성에는 거의 기여하지 못해요.</p>
+<p>이 프롬프트의 함정은 <strong>실제 장면을 묘사하는 단어가 단 한 개도 없다</strong>는 점이에요. 나열된 건 전부 품질 수식어뿐, "무엇이", "어디서", "어떤 조명 아래서" 찍혔는지에 대한 정보가 빠져 있습니다. AI는 이런 수식어들에 아주 약한 품질 가중치만 얹어 줄 뿐, 장면 자체를 짜 맞추는 데는 거의 도움이 되지 않아요.</p>
 <div class="info-box green">
 <strong>핵심 원칙</strong>
-    품질 좋은 이미지의 비결은 "beautiful, stunning, masterpiece" 같은 미사여구가 아니라 <strong>명확한 장면 설명</strong>입니다. 형용사를 줄이고, 명사와 구체적 디테일을 늘리세요.
+    이미지의 완성도를 끌어올리는 건 "beautiful, stunning, masterpiece" 같은 치장어가 아니라 <strong>장면에 대한 또렷한 설명</strong>입니다. 형용사는 덜어내고, 명사와 구체적인 디테일을 늘리세요.
   </div>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P446" data-pid="P446" loading="lazy" src="atomic-prompt-images/P446.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label green">✅ 개선 프롬프트 — 묘사로 품질을 만듦</div>
@@ -1272,14 +1272,14 @@ section p {
 <!-- ============================================ -->
 <section id="ambiguity">
 <h2>모호함이 만드는 함정 — AI의 "빈칸 채우기" 메커니즘</h2>
-<p>AI 이미지 모델의 작동 원리를 단순화하면 이렇습니다:</p>
+<p>AI 이미지 모델이 실제로 돌아가는 과정을 거칠게 요약하면 이렇습니다.</p>
 <div class="info-box purple">
-<strong>AI의 3단계 처리 과정</strong>
-    ① 프롬프트에 명시된 정보를 반영한다 → ② 명시되지 않은 정보는 학습 데이터에서 확률적으로 채운다 → ③ 이미지를 생성한다
+<strong>AI의 3단계 처리 흐름</strong>
+    ① 사용자가 입력한 내용을 반영 → ② 입력되지 않은 정보는 학습 데이터에서 확률적으로 채움 → ③ 최종 이미지 렌더링
   </div>
-<p><strong>②번이 핵심입니다.</strong> 여러분이 지정하지 않은 모든 요소는 AI가 학습 데이터의 통계적 분포에서 무작위로 선택합니다. 모호한 프롬프트일수록 AI가 스스로 결정할 변수가 많아지고, 여러분이 원하는 결과가 나올 확률은 급격히 떨어집니다.</p>
+<p><strong>관건은 ②번입니다.</strong> 사용자가 명시하지 않은 요소는 전부 AI가 학습된 분포 안에서 랜덤하게 고르는 대상이 돼요. 프롬프트가 모호할수록 AI가 스스로 결정할 변수는 늘어나고, 원하는 결과에 도달할 확률은 가파르게 떨어집니다.</p>
 <h3>"멋진 풍경"이 매번 다른 결과를 만드는 이유</h3>
-<p><code>a nice landscape</code>라고 프롬프트를 주면, AI는 다음을 전부 혼자 결정해야 합니다:</p>
+<p><code>a nice landscape</code>라는 한 마디만 던져주면, AI는 다음 항목을 전부 스스로 결정해야 합니다:</p>
 <table style="width:100%; border-collapse:collapse; margin:16px 0; font-size:14px;">
 <tr style="background:var(--card-bg); border-bottom:1px solid var(--border);">
 <th style="padding:10px 14px; text-align:left; font-weight:600;">요소</th>
@@ -1294,14 +1294,14 @@ section p {
 <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 14px;">색감</td><td style="padding:8px 14px;">없음</td><td style="padding:8px 14px;">따뜻한 톤? 차가운 톤?</td></tr>
 <tr><td style="padding:8px 14px;">스타일</td><td style="padding:8px 14px;">없음</td><td style="padding:8px 14px;">사진? 유화? 수채화?</td></tr>
 </table>
-<p>7개 요소 × 각각 여러 선택지 = <strong>수천 가지 조합</strong>이 가능합니다. 여러분의 머릿속 "멋진 풍경"과 정확히 일치할 확률은 수천분의 1이에요.</p>
+<p>변수 7개에 각각 여러 후보 값 = 나올 수 있는 조합은 <strong>수천 가지</strong>에 달합니다. 여러분이 머릿속에 그린 그 "멋진 풍경"과 딱 떨어지게 맞을 확률은 수천분의 일 수준이라는 뜻이에요.</p>
 <h3>모호함의 3가지 유형</h3>
 <h4>유형 1: 추상적 감정 서술</h4>
 <div class="negative">
 <h5>❌ 추상적</h5>
 <pre>a sad and lonely atmosphere</pre>
 </div>
-<p>"슬프고 외로운 분위기"는 사람끼리는 통하지만, AI는 이 감정을 시각으로 직접 번역하지 못합니다. 대신 <strong>감정을 유발하는 구체적 장면</strong>을 묘사하세요:</p>
+<p>"쓸쓸하고 외로운 무드"라는 표현은 사람끼리 주고받을 때만 통합니다. AI는 이런 감정 단어를 곧바로 픽셀로 옮기지 못해요. 방법은 간단합니다. 감정 자체가 아니라, <strong>그 감정이 피어나는 구체적인 상황</strong>을 그려주세요.</p>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P445" data-pid="P445" loading="lazy" src="atomic-prompt-images/P445.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label green">✅ 감정의 시각적 증거</div>
 <pre><span class="g">An empty hospital corridor at 3am</span>,
@@ -1310,19 +1310,19 @@ section p {
 <span class="r">corridor disappearing into darkness, 28mm wide lens, clinical cold white balance</span></pre>
 <button class="copy-btn" onclick="copyPrompt(this)">복사</button>
 </div>
-<p style="margin-top:8px;">새벽 3시의 텅 빈 병원 복도, 구겨진 휴지, 어둠 속으로 사라지는 통로 — 이 장면 자체가 외로움을 전달합니다. <strong>"감정을 말하지 말고, 감정을 보여주세요."</strong></p>
+<p style="margin-top:8px;">새벽 3시의 인기척 없는 병원 복도, 바닥에 떨어진 구겨진 휴지, 어둠 속으로 사라지는 통로 — 감정을 직접 말하지 않아도 장면 자체가 외로움을 품어 냅니다. <strong>"감정을 언급하지 말고, 감정이 묻어나는 장면을 보여주세요."</strong></p>
 <h4>유형 2: 주관적 품질 수식어</h4>
 <div class="negative">
 <h5>❌ 수식어 나열</h5>
 <pre>very beautiful, extremely detailed, super realistic</pre>
 </div>
-<p>"매우 아름다운"의 기준은 사람마다 다릅니다. 이런 수식어는 품질 가중치를 약간 더할 수 있지만, 장면 구성에는 아무 역할도 못 해요. <strong>"아름다운 일출"보다 "황금빛 노을이 잔잔한 호수 위로 비추고, 흩어진 권운이 보인다"</strong>가 압도적으로 강력합니다.</p>
+<p>"매우 아름답다"라는 기준은 사람마다 다르게 잡힙니다. 이런 주관적 수식어는 품질 가중치를 살짝 얹어줄 수는 있어도 장면 구성에 기여하는 바가 거의 없어요. <strong>"아름다운 일출"이라고 쓰는 것보다 "황금빛 노을이 잔잔한 호수 위로 번지고, 흩어진 권운이 하늘을 가른다"</strong>라고 쓰는 쪽이 훨씬 선명한 지시가 됩니다.</p>
 <h4>유형 3: 범위가 너무 넓은 주제</h4>
 <div class="negative">
 <h5>❌ 너무 넓음</h5>
 <pre>a cool sci-fi scene</pre>
 </div>
-<p>"멋진 SF 장면"은 스타워즈일 수도, 블레이드 러너일 수도, 인터스텔라일 수도 있습니다. AI에게 "sci-fi"는 수만 가지 시각적 패턴과 연결된 거대한 범주예요.</p>
+<p>"멋진 SF 장면"이라고 하면 누군가는 스타워즈를, 또 다른 누군가는 블레이드 러너, 혹은 인터스텔라를 떠올립니다. AI 입장에서도 "sci-fi"는 수만 갈래의 시각 패턴과 이어진 거대한 카테고리일 뿐이에요. 이 넓은 풀에서 무작위로 하나를 뽑아 들 수밖에 없습니다.</p>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P447" data-pid="P447" loading="lazy" src="atomic-prompt-images/P447.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label green">✅ 범위를 좁힌 SF 장면</div>
 <pre><span class="g">Cinematic, Sci-fi photography of an abandoned robotics research lab</span>,
@@ -1332,8 +1332,8 @@ section p {
 <button class="copy-btn" onclick="copyPrompt(this)">복사</button>
 </div>
 <div class="info-box red">
-<strong>모호함을 죽이는 단 하나의 원칙</strong>
-    "내 프롬프트를 읽은 다른 사람이, 나와 같은 이미지를 머릿속에 떠올릴 수 있는가?" — 이 질문에 "아니오"라면, 프롬프트가 모호한 겁니다.
+<strong>모호함을 잡는 가장 단순한 기준</strong>
+    "이 프롬프트를 처음 본 사람이, 나와 비슷한 장면을 머릿속에 떠올릴 수 있는가?" — 이 질문에 "아니오"가 나오면 그 프롬프트는 아직 모호한 상태입니다.
   </div>
 <h3>유형 4: 아키타입(Archetype) 함정 — AI가 "흔한 해석"으로 빠지는 이유</h3>
 <p>AI 모델은 단어를 처리할 때 <strong>시맨틱 이해(semantic understanding)</strong>를 합니다. 단순히 픽셀을 복사하는 게 아니라, "의자란 무엇인가", "부츠란 무엇인가"를 카테고리 수준에서 이해하죠. 문제는 이 이해가 <strong>가장 흔하고 안전한 해석 — 아키타입</strong>으로 고정된다는 겁니다.</p>
@@ -1368,12 +1368,12 @@ section p {
 <!-- ============================================ -->
 <section id="self-check">
 <h2>프롬프트 쓰기 전 4단계 자문법</h2>
-<p>프롬프트를 쓰기 전에 아래 4가지 질문을 스스로에게 던져보세요. 이 과정을 거치면 모호한 프롬프트가 나올 수 없습니다. Google의 공식 가이드에서 제시하는 <strong>Subject + Context + Style</strong> 3요소를 실전에서 더 세밀하게 풀어낸 방법이에요.</p>
-<h3>Step 1: "무엇이 보이는가?" — Subject</h3>
-<p>화면의 주인공을 정의합니다. 사람이면 성별, 나이대, 외모 특징, 표정, 자세, 의상을 구체화하세요. 사물이면 재질, 크기, 상태를 명시합니다.</p>
+<p>프롬프트를 작성하기 직전, 아래 네 개의 질문을 자기 자신에게 순서대로 던져 보세요. 이 체크만 거쳐도 "모호한 프롬프트"가 빠져나갈 구멍이 거의 사라집니다. Google 공식 가이드가 말하는 <strong>Subject + Context + Style</strong> 3요소를 실제 제작 관점에서 더 잘게 쪼갠 버전이에요.</p>
+<h3>Step 1: "화면에 무엇이 있는가?" — Subject</h3>
+<p>제일 먼저 할 일은 화면의 주인공을 정해주는 것입니다. 인물이라면 연령대, 성별, 외형 특징, 표정, 포즈, 옷차림을 짚어 주세요. 사물이라면 재질·크기·상태를 구체적으로 밝히면 됩니다.</p>
 <div class="info-box yellow">
-<strong>"어떻게 보이는가?" 멘탈모델</strong>
-    추상적인 개념을 프롬프트에 쓰고 싶을 때는 항상 자문하세요: <em>"이걸 카메라로 찍으면 실제로 어떻게 보이지?"</em> 예를 들어 "cinematic"을 쓰고 싶다면 → 구체적으로 "sharp focus, dramatic side lighting, high contrast, shallow depth of field, wide aspect ratio"가 됩니다. "surreal"을 쓰고 싶다면 → "impossible physics, dreamlike color shift, warped proportions"로 분해하세요. 추상 단어 하나보다 <strong>시각적 증거 3~4개</strong>가 훨씬 강력합니다.
+<strong>"카메라로 찍으면 뭐가 보일까" 멘탈모델</strong>
+    추상적인 단어를 쓰고 싶을 땐 스스로에게 물어 보세요: <em>"이 장면을 실제로 촬영하면 화면에 뭐가 잡힐까?"</em> 예컨대 "cinematic"을 넣고 싶다면 → "sharp focus, dramatic side lighting, high contrast, shallow depth of field, wide aspect ratio"로 풀어쓰면 됩니다. "surreal"이 쓰고 싶다면 → "impossible physics, dreamlike color shift, warped proportions" 같은 식으로 분해하세요. 추상어 한 단어보다 <strong>시각 단서 3~4개</strong>가 훨씬 또렷한 지시가 됩니다.
   </div>
 <div class="negative">
 <h5>❌ Before</h5>
@@ -1381,52 +1381,52 @@ section p {
 </div>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P495" data-pid="P495" loading="lazy" src="atomic-prompt-images/P495.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label green">✅ After</div>
-<pre><span class="g">a woman in her late 20s, short black hair, wearing a dark navy trench coat, standing with her arms crossed</span></pre>
+<pre><span class="g">a woman around her late twenties with cropped dark hair, dressed in a charcoal navy trench coat, arms folded across her chest</span></pre>
 <button class="copy-btn" onclick="copyPrompt(this)">복사</button>
 </div>
-<h3>Step 2: "어디에 있는가?" — Setting</h3>
-<p>장소와 시간을 지정합니다. 실내/실외, 구체적 공간, 시간대, 날씨/계절까지 결정하세요.</p>
+<h3>Step 2: "어떤 공간, 어떤 시간인가?" — Setting</h3>
+<p>다음으로 주인공이 놓인 장소와 시간을 잡아 줍니다. 실내인지 야외인지, 어떤 성격의 공간인지, 하루 중 언제이며 날씨·계절은 어떤 상태인지까지 확정해 두세요.</p>
 <div class="negative">
 <h5>❌ Before</h5>
 <pre>in a city</pre>
 </div>
 <div class="prompt-card">
 <div class="label yellow">✅ After</div>
-<pre><span class="y">on a rain-soaked narrow alley in Seoul, late evening, neon signs reflecting on wet pavement</span></pre>
+<pre><span class="y">down a rain-drenched back alley somewhere in Seoul, late into the evening, with neon signage smudged across the wet asphalt</span></pre>
 <button class="copy-btn" onclick="copyPrompt(this)">복사</button>
 </div>
-<h3>Step 3: "어떤 빛인가?" — Lighting</h3>
-<p>조명은 이미지 분위기를 결정짓는 가장 강력한 요소입니다. 자연광/인공광, 방향, 강도, 색온도를 생각해 보세요.</p>
+<h3>Step 3: "어떤 빛이 비추는가?" — Lighting</h3>
+<p>이미지의 무드를 가장 빠르게 바꿔 버리는 게 조명입니다. 자연광인지 인공광인지, 어느 방향에서 들어오는지, 세기와 색온도는 어떤지까지 그림을 그려 보세요.</p>
 <div class="negative">
 <h5>❌ Before</h5>
 <pre>good lighting</pre>
 </div>
 <div class="prompt-card">
 <div class="label yellow">✅ After</div>
-<pre><span class="y">soft warm light from a single street lamp above, casting long shadows on the ground, with faint neon glow from surrounding signs</span></pre>
+<pre><span class="y">a single overhead street lamp washing the scene in warm, softened light, stretching long shadows across the ground while the neon from nearby signs glows faintly in the distance</span></pre>
 <button class="copy-btn" onclick="copyPrompt(this)">복사</button>
 </div>
-<h3>Step 4: "어떤 느낌인가?" — Mood &amp; Style</h3>
-<p>최종적으로 원하는 시각적 톤을 지정합니다. 추상적 감정이 아니라 <strong>시각적으로 구현 가능한 스타일 키워드</strong>로 표현하세요.</p>
+<h3>Step 4: "어떤 결의 화면인가?" — Mood &amp; Style</h3>
+<p>마지막으로 원하는 시각적 톤을 지정합니다. 이때 주의할 점은, 감정을 직접 외치지 말고 <strong>화면에서 눈으로 확인할 수 있는 스타일 속성</strong>으로 바꿔서 써야 한다는 거예요.</p>
 <div class="negative">
 <h5>❌ Before</h5>
 <pre>moody and atmospheric</pre>
 </div>
 <div class="prompt-card">
 <div class="label red">✅ After</div>
-<pre><span class="r">desaturated color palette, muted tones, 35mm film grain, shallow depth of field</span></pre>
+<pre><span class="r">washed-out color palette, low saturation tones, fine 35mm film grain, shallow depth of field</span></pre>
 <button class="copy-btn" onclick="copyPrompt(this)">복사</button>
 </div>
 <h3>4단계를 하나로 조합하면</h3>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P496" data-pid="P496" loading="lazy" src="atomic-prompt-images/P496.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label purple">🔮 4단계 자문법 완성 프롬프트</div>
-<pre><span class="g">A woman in her late 20s, short black hair, wearing a dark navy trench coat, standing with her arms crossed</span>,
-<span class="y">on a rain-soaked narrow alley in Seoul, late evening, neon signs reflecting on wet pavement</span>,
-<span class="y">soft warm light from a single street lamp above casting long shadows, faint neon glow from surrounding signs</span>,
-<span class="r">desaturated color palette, muted tones, 35mm film grain, shallow depth of field</span></pre>
+<pre><span class="g">A woman around her late twenties with cropped dark hair, dressed in a charcoal navy trench coat, arms folded across her chest</span>,
+<span class="y">down a rain-drenched back alley somewhere in Seoul, late into the evening, with neon signage smudged across the wet asphalt</span>,
+<span class="y">a single overhead street lamp washing the scene in warm softened light, stretching long shadows across the ground, faint neon glow from surrounding signs</span>,
+<span class="r">washed-out color palette, low saturation tones, fine 35mm film grain, shallow depth of field</span></pre>
 <button class="copy-btn" onclick="copyPrompt(this)">복사</button>
 </div>
-<p style="margin-top:10px;">이 프롬프트를 읽은 누구라도 거의 같은 이미지를 머릿속에 떠올릴 수 있습니다. 그것이 곧 AI에게도 명확한 지시가 됩니다.</p>
+<p style="margin-top:10px;">이 정도로 적어두면 누가 읽어도 머릿속에 거의 같은 장면이 떠오르게 됩니다. 그 "누구나 떠올릴 수 있다"는 조건이 바로 AI 입장에서도 따라갈 수 있는 지시라는 뜻이에요.</p>
 <h3>프롬프트 작성 전 체크시트</h3>
 <table style="width:100%; border-collapse:collapse; margin:16px 0; font-size:14px;">
 <tr style="background:var(--card-bg); border-bottom:1px solid var(--border);">
@@ -1440,10 +1440,10 @@ section p {
 <tr><td style="padding:8px 14px;">어떤 느낌인가? (색감, 필름, 피사계 심도)</td><td style="padding:8px 14px;"></td><td style="padding:8px 14px; text-align:center;">☐</td></tr>
 </table>
 <div class="info-box green">
-<strong>Google이 권장하는 "반복적 정제" 프로세스</strong>
-    처음부터 완벽한 프롬프트를 쓰려 하지 마세요. 핵심 아이디어부터 시작 → 디테일 추가 → 더 구체적으로 정제. 각 단계에서 어떤 키워드가 어떤 영향을 미치는지 파악할 수 있습니다. 한 번에 긴 프롬프트를 쓰면 뭐가 문제인지 찾기 어렵습니다.
+<strong>Google이 권하는 "단계적 다듬기(iterative refinement)"</strong>
+    처음부터 완성형 프롬프트를 뽑아내려 하지 마세요. 뼈대 아이디어로 시작 → 디테일 한 층 얹기 → 다시 더 구체적으로 다듬기. 이 단계를 밟으면 어떤 키워드가 어떤 방향으로 결과를 밀었는지 눈에 보입니다. 반대로 처음부터 긴 문장을 한 번에 써 버리면, 문제가 생겼을 때 어디가 원인인지 찾기가 정말 어렵습니다.
   </div>
-<p>이제 "왜 실패하는지"와 "어떻게 생각해야 하는지"를 알았으니, 다음 섹션에서 나노바나나의 <strong>5-Block 프롬프트 시스템</strong>을 배워봅시다. 위의 4단계 자문법이 5-Block과 어떻게 연결되는지 보게 될 거예요.</p>
+<p>이렇게 실패 원인과 사고 흐름을 정리했으니, 다음 섹션에서는 나노바나나의 <strong>5-Block 프롬프트 시스템</strong>을 펼쳐 봅시다. 지금 배운 4단계 자문법이 5-Block과 어떻게 맞물리는지 자연스럽게 연결될 거예요.</p>
 <h3>보너스: 3가지 프롬프팅 접근법</h3>
 <p>프롬프트를 쓸 때 반드시 구체적이어야만 하는 건 아닙니다. 상황에 따라 세 가지 접근법 중 하나를 선택하세요:</p>
 <table style="width:100%; border-collapse:collapse; margin:16px 0; font-size:14px;">
@@ -1476,8 +1476,8 @@ section p {
 <!-- ============================================ -->
 <section id="fiveblock">
 <h2>5-Block 프롬프트 시스템 완전 해부</h2>
-<p>나노바나나 AI는 프롬프트를 5개의 Block으로 나눠서 해석합니다. 이 구조를 이해하면 "왜 내 프롬프트가 안 먹히지?"라는 고민의 80%가 해결됩니다.</p>
-<p>중요한 건 이겁니다: <strong>모든 Block을 매번 쓸 필요는 없어요.</strong> Block 1만으로도 충분한 경우가 많고, 필요에 따라 Block을 하나씩 추가하면 됩니다. 마치 요리할 때 기본 양념(소금, 후추)만으로도 맛있지만, 향신료를 추가하면 더 특별한 맛이 나는 것처럼요.</p>
+<p>나노바나나 AI는 사용자가 입력한 프롬프트를 다섯 개의 Block 단위로 끊어 읽습니다. 이 5개 블록이 뭘 하는 녀석들인지 감을 잡는 순간, "왜 이 프롬프트가 안 먹히지?"라는 고민의 상당수가 한꺼번에 풀려요.</p>
+<p>짚어 둘 포인트 하나: <strong>모든 블록을 매번 다 채워야 하는 건 아닙니다.</strong> Block 1만으로도 충분한 작업이 의외로 많고, 원하는 방향에 따라 블록을 하나씩 추가해 가면 됩니다. 요리에 빗대면, 소금·후추만으로도 요리 자체는 완성되지만 향신료 한두 개를 얹으면 풍미가 확 달라지는 것과 비슷해요.</p>
 <h3>전체 구조 한눈에 보기</h3>
 <table class="mapping-table">
 <thead>
@@ -1528,7 +1528,7 @@ section p {
 <pre><span class="g">Portrait photography of a man in a suit</span></pre>
 <button class="copy-btn" onclick="copyPrompt(this)">복사</button>
 </div>
-<p style="margin-top:8px;">이 경우 AI가 배경, 조명, 색감, 분위기를 전부 알아서 결정합니다. 운이 좋으면 좋은 결과가 나오지만, 내 의도와 다를 확률이 높아요.</p>
+<p style="margin-top:8px;">이 상태에서는 AI가 배경·조명·색감·무드를 혼자 결정합니다. 운이 따라주면 괜찮은 이미지가 나오기도 하지만, 내가 상상한 그림과 어긋날 가능성이 훨씬 큽니다.</p>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P010" data-pid="P010" loading="lazy" src="atomic-prompt-images/P010.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label">Block 1 + Block 2-3 — 맥락과 스타일 지정</div>
 <pre><span class="g">Portrait photography of a man in a suit</span>,
@@ -1536,7 +1536,7 @@ section p {
 <span class="y">corporate editorial style, clean and professional mood</span></pre>
 <button class="copy-btn" onclick="copyPrompt(this)">복사</button>
 </div>
-<p style="margin-top:8px;">장소(오피스 로비), 촬영 기법(미디엄 샷), 스타일(기업 에디토리얼)이 추가되니 AI의 해석 범위가 크게 좁아집니다.</p>
+<p style="margin-top:8px;">장소(오피스 로비), 쇼트(미디엄 샷), 스타일(기업 에디토리얼)까지 붙여 주는 순간 AI가 선택할 수 있는 범위가 확 줄어듭니다.</p>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P011" data-pid="P011" loading="lazy" src="atomic-prompt-images/P011.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label">Block 1-5 전부 — 정밀 컨트롤</div>
 <pre><span class="g">Portrait photography of a man in a suit</span>,
@@ -1546,13 +1546,13 @@ section p {
 <span class="r">navy wool suit, white dress shirt, silver cufflinks, leather briefcase, shallow depth of field</span></pre>
 <button class="copy-btn" onclick="copyPrompt(this)">복사</button>
 </div>
-<p style="margin-top:8px;">조명(소프트 확산 오버헤드), 색감(쿨 뉴트럴), 그리고 의상·소품의 디테일까지 지정하니 거의 "촬영 현장 세팅 시트" 수준입니다.</p>
+<p style="margin-top:8px;">조명(소프트 확산 오버헤드), 컬러 팔레트(쿨 뉴트럴), 의상·소품 디테일까지 명시하면 사실상 "촬영 현장 세팅 문서"에 가까운 수준이 됩니다.</p>
 <div class="tip">
-<strong>실무 팁:</strong> 처음엔 Block 1 + Block 2-3 조합으로 시작하세요. 결과를 보면서 "조명이 아쉽다" 싶으면 Block 4를, "의상이 다르다" 싶으면 Block 5를 추가하는 방식이 가장 효율적입니다. 한번에 모든 Block을 쓰면 오히려 AI가 혼란스러워할 수 있어요.
+<strong>실무 팁:</strong> 초기 세팅은 Block 1 + Block 2-3 조합으로 시작해 보세요. 결과를 훑어 보고 "조명이 아쉽다" 싶으면 Block 4를, "의상 디테일이 달라요" 싶으면 Block 5를 얹는 식이 가장 경제적입니다. 처음부터 모든 블록을 꽉 채워 넣으면 오히려 AI가 우선순위를 못 잡고 헤매는 경우가 많아요.
   </div>
 <h3>"Cinematic" 키워드의 역할</h3>
-<p>프롬프트 앞에 <strong>"Cinematic"</strong>을 붙이면 AI가 이미지를 영화 한 장면처럼 해석합니다. 구체적으로는 깊이감 있는 피사계 심도, 영화적 색보정, 드라마틱한 조명이 자동으로 적용돼요.</p>
-<p>반대로 Cinematic을 빼면 "사진(Photography)" 느낌에 더 가까워집니다. 상업적 제품 사진이나 증명사진 같은 용도에서는 Cinematic을 빼는 게 나을 수 있어요.</p>
+<p>프롬프트 맨 앞에 <strong>"Cinematic"</strong>을 놓으면, AI는 해당 이미지를 영화 장면처럼 해석합니다. 구체적으로는 얕은 피사계 심도, 영화적 컬러 그레이딩, 드라마틱한 조명이 자동으로 끼어들어요.</p>
+<p>반대로 Cinematic을 빼면 보통 "일반 사진(Photography)" 쪽 무드에 가까워집니다. 제품 카탈로그나 증명사진처럼 상업 용도라면 오히려 Cinematic을 빼는 편이 어울릴 때가 많아요.</p>
 <div class="keyword-grid">
 <div class="keyword-item">
 <h5>Cinematic 사용 시</h5>
@@ -1570,7 +1570,7 @@ section p {
 <!-- ============================================ -->
 <section id="block1">
 <h2>Block 1: Subject — 이미지의 방향을 결정하는 첫 번째 문장</h2>
-<p>Block 1은 프롬프트의 <strong>뼈대</strong>입니다. 사진 장르 + 피사체 + 행동/상태, 이 세 가지가 Block 1의 전부예요. 그런데 이 세 가지를 어떻게 조합하느냐에 따라 AI가 완전히 다른 이미지를 만들어냅니다.</p>
+<p>Block 1은 프롬프트 전체의 <strong>기초 구조</strong> 역할을 합니다. 사진 장르 + 피사체 + 행동/상태, 이 세 항목만으로 구성되는 짧은 블록이에요. 그런데 이 세 개를 어떻게 엮느냐에 따라 AI가 생성하는 이미지가 완전히 다른 결로 갈라집니다.</p>
 <div class="level-box organism">
 <h4>Block 1 공식</h4>
 <code>[Cinematic,] [사진 장르] of [피사체], [행동 또는 상태]</code>
@@ -1632,8 +1632,8 @@ section p {
 <!-- SECTION 4: Block 2-4 — 스타일 레이어 -->
 <!-- ============================================ -->
 <section id="block234">
-<h2>Block 2-4: 분위기, 스타일, 조명 — 이미지에 "느낌"을 입히는 레이어</h2>
-<p>Block 1이 "무엇을"이라면, Block 2-4는 "어떻게"입니다. 같은 피사체도 이 레이어를 바꾸면 완전히 다른 감성의 이미지가 됩니다. 실제 촬영에서 감독이 "조명 좀 더 따뜻하게", "카메라 낮춰서 올려다보게"라고 지시하는 것과 같아요.</p>
+<h2>Block 2-4: 분위기, 스타일, 조명 — 이미지에 "느낌"을 덧입히는 레이어</h2>
+<p>Block 1이 "무엇을"이라면, Block 2-4는 "어떤 식으로"에 해당합니다. 똑같은 피사체라도 이 레이어를 갈아 끼우면 전혀 다른 감성의 결과물이 나와요. 실제 촬영장에서 감독이 "조명 톤 좀 더 따뜻하게 가자", "카메라 내려서 올려다보는 구도로" 같은 지시를 넣는 과정과 같은 역할을 합니다.</p>
 <h3>Block 2: Context — 맥락과 배경</h3>
 <p>피사체가 "어디에" 있고, "어떤 상황"인지를 정합니다. 같은 인물이라도 스튜디오에 있는지, 빗속을 걷고 있는지에 따라 전혀 다른 이야기가 됩니다.</p>
 <div class="level-box molecule">
@@ -1701,8 +1701,8 @@ section p {
 <!-- SECTION 5: Block 5 — 디테일 컨트롤 -->
 <!-- ============================================ -->
 <section id="block5">
-<h2>Block 5: Details — 마지막 1%를 완성하는 세부 묘사</h2>
-<p>Block 5는 "마이크로 디테일"입니다. 의상의 소재, 액세서리, 배경 소품, 질감, 특정 브랜드 느낌까지 지정할 수 있어요. 대부분의 경우 Block 1-4만으로 충분하지만, <strong>상업적 용도</strong>에서 특정 무드보드를 정확히 재현해야 할 때 Block 5가 빛납니다.</p>
+<h2>Block 5: Details — 마지막 1%를 메워주는 미세 묘사</h2>
+<p>Block 5의 역할은 한 마디로 "마이크로 디테일링"입니다. 의상 소재, 액세서리, 배경 소품, 질감, 특정 브랜드의 무드까지 콕 집어 넣을 수 있는 구간이에요. 일상 작업에서는 Block 1~4만 채워도 대부분 무난히 돌아가지만, <strong>상업 작업</strong>에서 특정 무드보드를 그대로 재현해야 할 때 Block 5가 위력을 발휘합니다.</p>
 <div class="level-box atom">
 <h4>Block 5에서 지정하는 것들</h4>
 <code>[의상/소품 묘사] [색상 팔레트] [소재/질감] [브랜드/디자이너 느낌] [추가 디테일]</code>
@@ -1744,13 +1744,13 @@ section p {
 <!-- ============================================ -->
 <section id="beforeafter">
 <h2>Before / After — 프롬프트 개선 전후 비교</h2>
-<p>"좋은 프롬프트"가 뭔지 이론적으로 아는 것과, 실제로 느끼는 건 다릅니다. 이 섹션에서는 흔히 하는 실수(Before)를 어떻게 고치면(After) 결과가 좋아지는지 구체적으로 비교합니다.</p>
-<h3>사례 1: 모호한 주제 → 구체적 주제</h3>
+<p>"좋은 프롬프트"를 머리로 이해하는 것과 실제로 체감하는 건 완전히 다른 경험입니다. 이 섹션에서는 사용자들이 흔히 저지르는 실수(Before)를 어떤 식으로 손보면(After) 결과가 달라지는지, 눈으로 확인해 볼 수 있는 쌍으로 정리했습니다.</p>
+<h3>사례 1: 모호한 주제 → 또렷한 주제</h3>
 <div class="negative">
-<h5>Before — 너무 모호함</h5>
+<h5>Before — 지나치게 막연한 한 줄</h5>
 <pre>a beautiful photo of a woman</pre>
 </div>
-<p style="margin:8px 0;">"Beautiful"은 주관적 형용사라 AI에게 별로 도움이 안 됩니다. 장르도 없고, 상태 묘사도 없어요.</p>
+<p style="margin:8px 0;">"Beautiful"은 사람마다 기준이 다른 주관적 형용사라 AI 입장에서 근거가 되기 어렵습니다. 장르도 빠져 있고, 인물의 상태에 대한 단서도 없어요.</p>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P023" data-pid="P023" loading="lazy" src="atomic-prompt-images/P023.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label">After — 장르 + 피사체 + 맥락 추가</div>
 <pre><span class="g">Cinematic, Portrait photography of a woman in her late 20s</span>,
@@ -1762,7 +1762,7 @@ section p {
 <h5>Before — 키워드만 나열</h5>
 <pre>coffee, table, morning, warm, photo, aesthetic, beautiful, good quality</pre>
 </div>
-<p style="margin:8px 0;">AI는 단어 나열보다 맥락이 있는 문장을 훨씬 잘 이해합니다. "beautiful"이나 "good quality" 같은 단어는 거의 효과가 없어요.</p>
+<p style="margin:8px 0;">AI는 단어를 떨어뜨려 놓는 것보다 흐름이 이어지는 문장을 훨씬 정확하게 받아들입니다. "beautiful"이나 "good quality" 같은 단어는 사실상 효과가 거의 없다고 보시면 돼요.</p>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P024" data-pid="P024" loading="lazy" src="atomic-prompt-images/P024.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label">After — 맥락이 있는 자연스러운 문장</div>
 <pre><span class="g">Food photography of a ceramic cup of black coffee on a wooden table</span>,
@@ -1772,10 +1772,10 @@ section p {
 </div>
 <h3>사례 3: 스타일 부재 → 레퍼런스 스타일 추가</h3>
 <div class="negative">
-<h5>Before — 스타일 지정 없음</h5>
+<h5>Before — 스타일 지정이 없음</h5>
 <pre>photo of a city at night with lights</pre>
 </div>
-<p style="margin:8px 0;">AI가 "어떤 느낌의 야경"을 원하는지 전혀 모릅니다.</p>
+<p style="margin:8px 0;">이 한 줄로는 "어떤 결의 야경인지"에 대한 단서를 AI가 전혀 잡을 수 없습니다.</p>
 <div class="prompt-card"><figure class="prompt-img-wrap" style="margin:0 0 16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12);"><img alt="P025" data-pid="P025" loading="lazy" src="atomic-prompt-images/P025.png" style="width:100%;height:auto;display:block;"/></figure>
 <div class="label">After — 시네마틱 스타일 + 감독 레퍼런스</div>
 <pre><span class="g">Cinematic, Architectural photography of a neon-lit city street at night</span>,
